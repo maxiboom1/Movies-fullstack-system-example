@@ -7,8 +7,6 @@ function Home(): JSX.Element {
         
         <div className="Home">
 			
-            <h2>Home Page</h2>
-
             <img src={img} alt="Here we should see theater img" />
             
         </div>
