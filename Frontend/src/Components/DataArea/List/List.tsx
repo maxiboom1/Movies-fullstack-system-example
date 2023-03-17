@@ -34,15 +34,15 @@ function List(): JSX.Element {
     async function showMoviesByTheater(args:ChangeEvent<HTMLSelectElement>){
         const theaterId = +args.target.value;
         const theaterName = args.target.options[theaterId].text;
-        const movies: MovieModel[] = await dataService.getMoviesByTheater(theaterId);
+        const movies = await dataService.getMoviesByTheater(theaterId);
         setCurrentTheater(theaterName);
         setMovies(movies);
     }
 
     return (
         <div className="List">
-			<h2>Movies list</h2>
-            <label>Please select theater:</label>
+			<h2>Movies list by theaters</h2>
+
             <select defaultValue="" onChange={showMoviesByTheater}>
                 <option value="" disabled>Please select theater</option>
                 {theaters.map(theater => <option key={theater.theaterId} value={theater.theaterId}>{theater.theaterName}</option>)}
